@@ -77,12 +77,6 @@ public class PersonControllerTest {
                 .andExpect(status().isOk());
     }
 
-    @Test(expected=Exception.class)
-    public void findPersonFail() throws Exception {
-        MockHttpServletRequestBuilder request = get("/persons/1");
-        mockMvc.perform(request).andDo(print()).
-                andExpect(status().isNotFound());
-    }
 
     public static String asJsonString(final Object obj) {
         try {
