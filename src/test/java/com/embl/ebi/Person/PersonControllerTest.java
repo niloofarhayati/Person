@@ -47,8 +47,8 @@ public class PersonControllerTest {
     @Before()
     public void setup() {
         mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
-        person = new Person("John", "Smith", 25, "red", Arrays.asList("football"));
-        person.setId(1l);
+        person = new Person("John", "Smith", 25, "red", Arrays.asList("Football","Tennis"));
+        person.setId(1L);
     }
 
     @Test
@@ -67,7 +67,7 @@ public class PersonControllerTest {
     @Test
     @WithMockUser(username = "admin", roles = {"USER", "ADMIN"})
     public void findPerson() throws Exception {
-        given(personRepository.findById(1l)).willReturn(Optional.of(person));
+        given(personRepository.findById(1L)).willReturn(Optional.of(person));
         MediaType MEDIA_TYPE_JSON_UTF8 = new MediaType("application", "json", java.nio.charset.Charset.forName("UTF-8"));
         MockHttpServletRequestBuilder request = get("/persons/1");
         request.accept(MEDIA_TYPE_JSON_UTF8);
