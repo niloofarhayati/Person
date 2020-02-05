@@ -1,0 +1,41 @@
+Installation & Running
+Use the package manager maven to install and run. You'll also need Java 8 as JVM.
+First build the project and run tests with the command :
+mvn clean install
+and then
+mvn spring-boot:run
+to run my backend
+
+Usage
+For added Problem to Solve I choose Securing my API:
+
+So the API usage needs Authentication, for POST, PUT, DELETE Requests Role of admin with user:admin password:password
+for GET requests Role of USER with user:user password:password
+1) Create a Person (POST REQUEST)
+
+Use Postman or another tool such as curl to make a POST request
+
+curl --header "Content-Type: application/json"
+--request POST
+http://< host >:< port >/savePerson
+
+and you will get a response containing the newly generated person id.
+
+2) update person (PUT REQUEST)
+
+curl --header "Content-Type: application/json"
+--request PUT
+http://< host >:< port >/persons/id
+
+3) get Person or persons( GET REQUEST)
+
+curl --header "Content-Type: application/json"
+--request GET
+http://< host >:< port >/persons/id or 
+http://< host >:< port >/persons
+
+4) delete person ( DELETE REQUEST)
+
+curl --header "Content-Type: application/json"
+--request DELETE
+http://< host >:< port >/persons/id

@@ -36,7 +36,7 @@ public class PersonController {
     @GetMapping("/persons/{id}")
     Person findPerson(@PathVariable @Min(1) Long id) throws PersonDoesNotExistException {
         return repository.findById(id)
-                .orElseThrow(() -> new PersonDoesNotExistException(1l));
+               .orElseThrow(() -> new PersonDoesNotExistException((long) HttpStatus.NOT_FOUND.value()));
     }
 
     @PutMapping("/persons/{id}")
